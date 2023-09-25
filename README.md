@@ -31,10 +31,17 @@
   > ![API setting](./img/create%20API%20Full.png)
 3. 点击 **Create**
 
-## 将操作添加到 HTTP API
-1. 选择上一步中创建的API，点击 **Add Operation** 添加操作
+## 向 HTTP API 添加操作
+1. 选择上一步中创建的API，点击 **Add Operation** -> **Frontend** 添加操作
   - **Display name：** 显示在开发人员门户中的名称
-  - **URL:** 方法选择POST，路径填入 ```/chat/completions?api-version={api-version}```
+  - **URL:** 方法选择 POST，路径填入 ```/chat/completions?api-version={api-version}```
   > ![add operation](./img/add%20operation.png)
-2. 
-
+2. 继续在 **Frontend** 中选择 **Response** 添加响应
+  - 200 OK
+  - 400 Bad Request
+  - 500 Internal Server Error
+3. 在当前窗口的 **Representation** 下添加表现形式
+  - **Content Type:** 输入 ```application/json```
+  - **Sample:** 输入 ```{"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":"Hi"}],"temperature":0.9,"stream":true}```
+  - **Definition:** 输入 ```ChatCompletionsPostRequest-1```
+  > ![add representation](./img/add%20representation.png)
