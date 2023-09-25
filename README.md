@@ -72,3 +72,65 @@
   ```  
 2. 添加名为 ```api-key``` 的 Header，Value 填入相应的 AOAI Key
    > ![backends](./img/backends.png)
+3. 打开 **API** -> **POST** -> **Policies**
+  > ![policies](./img/policies1.png)
+4. 将 **Policies** 中的内容全部替换为：
+```
+<policies>
+    <inbound>
+        <base />
+        <set-variable name="msgId" value="@{
+            <!-- 从 HTTP 请求头中获取 MsgId 值 -->
+            int msgId = 0;
+            if (context.Request.Headers.TryGetValue("MsgId", out var msgIdValues) && msgIdValues.Any())
+            {
+                int.TryParse(msgIdValues.First(), out msgId);
+            }
+            return msgId % 2;
+        }" />
+
+        <!-- 根据 msgId 的值选择后端服务 -->
+        <choose>
+            <when condition="@((int)context.Variables["msgId"] == 0)">
+                <!-- 当 msgId 为偶数时，使用 gpt35-1 作为后端服务 --> 
+                <set-backend-service backend-id="gpt35-1" />
+            </when>
+            <otherwise>
+                <!-- 当 msgId 为奇数时，使用 gpt35-2 作为后端服务 -->
+                <set-backend-service backend-id="gpt35-2" />
+            </otherwise>
+        </choose>
+
+         <!-- 允许跨域请求 -->
+        <cors allow-credentials="false">
+
+            <!-- 允许所有来源 -->
+            <allowed-origins>
+                <origin>*</origin>
+            </allowed-origins>
+
+            <!-- 允许 GET 和 POST 请求 --> 
+            <allowed-methods>
+                <method>GET</method>
+                <method>POST</method>
+            </allowed-methods>
+        </cors>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+
+         <!-- 设置响应头 Access-Control-Allow-Origin -->
+        <set-header name="Access-Control-Allow-Origin" exists-action="override">
+            <value>*</value>
+        </set-header>        
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+```
+- 如果有多个backend, 修改 "2" 为相应的数量，并按条件增加路由项
+5. 测试
