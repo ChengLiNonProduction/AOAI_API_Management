@@ -1,11 +1,25 @@
 # Rate Limit 与资源管理
 
+如果使用 Azure OpenAI 的企业级用户发现单一资源的 TPM (Token Per Minute) 无法满足他们的需求，可以通过创建多个 AOAI 资源的方式，并使用 Azure API Management 管理多个终结点，将工作负载分散到多个资源中，从而提高整体 TPM。
+
+以下是具体的实现步骤。
+
 ## 创建多个 AOAI 资源
-1. 在不同区域创建多个AOAI资源，以两个为例
+1. 在不同区域创建多个 AOAI 资源，以两个为例
   > ![AOAI resource](./img/AOAI%20resource.png)
-2. 在AOAI资源概览中，获取相应的endpoint, key
+2. 在 AOAI 资源概览页面，获取相应的 Endpoint, Key
   > ![key & endpoint](./img/key%20endpoint.png)
 
 ## 创建 API 管理服务
+1. 在 Azure 门户中选择 **创建资源**，搜索 **API Management** 并点击 **Create**
+  > ![create APIM](./img/create%20APIM.png)
+2. 在 **创建 API 管理** 页，输入以下设置
+  - **Region:** 从可用的 API 管理服务位置选择附近的地理区域
+  - **Resource name:** API管理服务的名称，需全球唯一，创建后不能更改
+  - **Administrator email:** 填入您自己的邮箱，APIM服务创建完成之后将发邮件通知
+  - **Organization name:** 填入您或组织的名称，通知邮件的标题中将使用此名称
+  - **Pricing tier:** 选择 Developer
+  > ![APIM setting](./img/APIM%20setting.png)
+3. 点击 **Review + Create**
 
 ## 导入 API
