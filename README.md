@@ -57,4 +57,8 @@
 4. 最后在 **Template** 中填入 API version
   > ![template](./img/template.png)
 
-## 创建和发布产品
+## 将 API 添加到现有产品
+1. 导航到 API 管理实例，在左侧选项卡中选择 **Products** -> **unlimited**
+  > ![unlimited products](./img/unlimited%20products.png)   
+2. 在 **Unlimited** 产品中选择 **Add API**，将刚刚创建的API添加进去
+  > ![api in unlimited](./img/api%20in%20unlimited.png) 
