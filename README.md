@@ -29,4 +29,12 @@
   - **Products:** 选择 Unlimited
   - **Gateways:** 选择 Managed
   > ![API setting](./img/create%20API%20Full.png)
+3. 点击 **Create**
+
+## 将操作添加到 HTTP API
+1. 选择上一步中创建的API，点击 **Add Operation** 添加操作
+  - **Display name：** 显示在开发人员门户中的名称
+  - **URL:** 方法选择POST，路径填入 ```/chat/completions?api-version={api-version}```
+  > ![add operation](./img/add%20operation.png)
+2. 
 
