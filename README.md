@@ -41,7 +41,16 @@
   - 400 Bad Request
   - 500 Internal Server Error
 3. 在当前窗口的 **Representation** 下添加表现形式
-  - **Content Type:** 输入 ```application/json```
-  - **Sample:** 输入 ```{"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":"Hi"}],"temperature":0.9,"stream":true}```
-  - **Definition:** 输入 ```ChatCompletionsPostRequest-1```
-  > ![add representation](./img/add%20representation.png)
+  - **Content Type:**
+    ```
+    application/json
+    ```
+  - **Sample:**  
+    ```
+    {"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":"Hi"}],"temperature":0.9,"stream":true}
+    ```
+  - **Definition:**
+    ```
+    ChatCompletionsPostRequest-1
+    ```
+  > ![add representation](./img/add%20representation1.png)
