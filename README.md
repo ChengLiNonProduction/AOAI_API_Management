@@ -15,11 +15,18 @@
   > ![create APIM](./img/create%20APIM.png)
 2. 在 **创建 API 管理** 页，输入以下设置
   - **Region:** 从可用的 API 管理服务位置选择附近的地理区域
-  - **Resource name:** API管理服务的名称，需全球唯一，创建后不能更改
-  - **Administrator email:** 填入您自己的邮箱，APIM服务创建完成之后将发邮件通知
+  - **Resource name:** API 管理服务的名称，需全球唯一，创建后不能更改
+  - **Administrator email:** 填入您自己的邮箱，APIM 服务创建完成之后将发邮件通知
   - **Organization name:** 填入您或组织的名称，通知邮件的标题中将使用此名称
   - **Pricing tier:** 选择 Developer
   > ![APIM setting](./img/APIM%20setting.png)
 3. 点击 **Review + Create**
 
 ## 导入 API
+1. 导航到 API 管理实例，选择 **APIs** -> **Add API** -> **HTTP** API
+  > ![HTTP API](./img/HTTP%20API.png)
+2. 在 **创建 HTTP API** 窗口中，选择 **Full**
+  - **Products:** 选择 Unlimited
+  - **Gateways:** 选择 Managed
+  > ![API setting](./img/create%20API%20Full.png)
+
