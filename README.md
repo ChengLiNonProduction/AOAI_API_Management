@@ -54,3 +54,7 @@
     ChatCompletionsPostRequest-1
     ```
   > ![add representation](./img/add%20representation1.png)
+4. 最后在 **Template** 中填入 API version
+  > ![template](./img/template.png)
+
+## 创建和发布产品
