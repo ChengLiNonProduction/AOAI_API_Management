@@ -80,7 +80,7 @@
     <inbound>
         <base />
         <set-variable name="msgId" value="@{
-            <!-- 从 HTTP 请求头中获取 MsgId 值 -->
+            // 从 HTTP 请求头中获取 MsgId 值
             int msgId = 0;
             if (context.Request.Headers.TryGetValue("MsgId", out var msgIdValues) && msgIdValues.Any())
             {
@@ -134,3 +134,7 @@
 ```
 - 如果有多个backend, 修改 "2" 为相应的数量，并按条件增加路由项
 5. 测试
+  - 切换到 **Test** 页
+  - 点击最下方 **Send** 按钮
+  - HTTP 相应状态为 *200 OK* 则测试成功
+  > ![test](./img/test.png)
