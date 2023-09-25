@@ -61,4 +61,14 @@
 1. 导航到 API 管理实例，在左侧选项卡中选择 **Products** -> **unlimited**
   > ![unlimited products](./img/unlimited%20products.png)   
 2. 在 **Unlimited** 产品中选择 **Add API**，将刚刚创建的API添加进去
-  > ![api in unlimited](./img/api%20in%20unlimited.png) 
+  > ![api in unlimited](./img/api%20in%20unlimited.png)
+
+## 使用 APIM 管理多个 AOAI 终结点
+1. 在API 管理左侧选项卡选择 **Backends** -> **Add**，创建名为 ```gpt35-1``` 和 ```gpt35-2``` 两个后端
+  - 选择自定义 URL，并填入
+  ```
+  # 替换为相应的值 
+  https://<your OpenAI resource name>.openai.azure.com/openai/deployments/<your deployment id>
+  ```  
+2. 添加名为 ```api-key``` 的 Header，Value 填入相应的 AOAI Key
+   > ![backends](./img/backends.png)
