@@ -40,7 +40,7 @@
   - 200 OK
   - 400 Bad Request
   - 500 Internal Server Error
-3. 在当前窗口的 **Representation** 下添加表现形式
+3. 在当前窗口的 **Representation** 下添加 API 请求的表现形式
   - **Content Type:**
     ```
     application/json
